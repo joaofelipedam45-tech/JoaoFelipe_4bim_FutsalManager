@@ -1,0 +1,11 @@
+.grade-menu { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1rem; }
+.cartao-menu { text-decoration: none; color: var(--texto); margin: 0; transition: transform .15s, box-shadow .15s, border-color .15s; }
+.cartao-menu:hover { transform: translateY(-4px); box-shadow: var(--sombra-forte); border-color: var(--verde-600); }
+.cartao-menu .icone { font-size: 2.2rem; display: block; margin-bottom: .5rem; }
+.cartao-menu h2 { font-size: 1.1rem; color: var(--verde-800); margin-bottom: .25rem; }
+.cartao-menu p { font-size: .9rem; color: var(--texto-suave); }
+.lista-proximos { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
+.lista-proximos li { padding-bottom: .75rem; border-bottom: 1px solid var(--borda); }
+.lista-proximos li:last-child { border-bottom: 0; padding-bottom: 0; }
+.lista-proximos strong { display: block; font-size: .95rem; }
+.lista-proximos small { color: var(--texto-suave); }

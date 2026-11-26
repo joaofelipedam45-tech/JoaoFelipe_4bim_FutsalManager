@@ -1,0 +1,38 @@
+.barra-filtro { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.barra-filtro label { font-weight: 600; color: var(--texto-suave); font-size: .9rem; }
+.barra-filtro select { width: auto; min-width: 220px; }
+
+.grade-jogos { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1rem; }
+.jogo {
+  background: var(--branco); border: 2px solid var(--borda); border-radius: var(--raio);
+  box-shadow: var(--sombra); overflow: hidden; display: flex; flex-direction: column;
+  transition: transform .15s, border-color .15s, box-shadow .15s;
+}
+.jogo:hover { transform: translateY(-3px); box-shadow: var(--sombra-forte); }
+.jogo.selecionado { border-color: var(--destaque); box-shadow: 0 0 0 4px rgba(245,179,1,.25); }
+.jogo-topo { background: var(--verde-50); padding: .6rem 1rem; display: flex; justify-content: space-between; align-items: center; gap: .5rem; font-size: .8rem; color: var(--verde-800); font-weight: 600; }
+.jogo-confronto { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: .5rem; padding: 1.1rem 1rem .6rem; text-align: center; }
+.jogo-time img { width: 64px; height: 64px; object-fit: cover; border-radius: 50%; margin: 0 auto .4rem; border: 3px solid var(--borda); background: var(--fundo); }
+.jogo-time span { display: block; font-size: .85rem; font-weight: 700; line-height: 1.2; }
+.jogo-versus { font-weight: 800; color: var(--texto-suave); font-size: 1.1rem; }
+.jogo-info { padding: 0 1rem 1rem; font-size: .88rem; color: var(--texto-suave); flex: 1; }
+.jogo-info p + p { margin-top: .2rem; }
+.barra-lotacao { height: 8px; background: var(--borda); border-radius: 999px; overflow: hidden; margin-top: .6rem; }
+.barra-lotacao > div { height: 100%; background: var(--verde-600); }
+.barra-lotacao > div.quase { background: var(--destaque); }
+.barra-lotacao > div.cheio { background: var(--perigo); }
+.jogo-rodape { display: flex; align-items: center; justify-content: space-between; gap: .5rem; padding: .8rem 1rem; border-top: 1px solid var(--borda); }
+.jogo-preco { font-size: 1.25rem; font-weight: 800; color: var(--verde-800); }
+
+.painel-compra { position: sticky; top: 4.5rem; }
+.resumo-jogo { background: var(--verde-50); border-radius: var(--raio-pequeno); padding: .8rem 1rem; margin-bottom: 1rem; font-size: .92rem; }
+.resumo-jogo strong { display: block; }
+.grupo-pagamento { border: 0; margin: 1rem 0 .25rem; }
+.opcao-pagamento { display: flex; align-items: center; gap: .5rem; padding: .55rem .75rem; margin-top: .4rem; border: 1.5px solid var(--borda); border-radius: var(--raio-pequeno); cursor: pointer; font-size: .95rem; color: var(--texto); font-weight: 500; }
+.opcao-pagamento:has(input:checked) { border-color: var(--verde-600); background: var(--verde-50); }
+.total-compra { margin: 1rem 0; font-size: 1.1rem; }
+.total-compra strong { font-size: 1.6rem; color: var(--verde-800); }
+.comprovante { margin-top: 1rem; padding: 1rem; border-radius: var(--raio-pequeno); background: var(--verde-50); border: 1.5px solid var(--verde-600); font-size: .92rem; }
+.comprovante h3 { color: var(--verde-800); margin-bottom: .4rem; }
+.comprovante code { display: block; margin-top: .4rem; padding: .5rem; background: var(--branco); border-radius: 6px; word-break: break-all; font-size: .78rem; }
+.comprovante .btn { margin-top: .8rem; }

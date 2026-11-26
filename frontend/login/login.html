@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar - Futsal Manager</title>
+  <link rel="stylesheet" href="../comum/comum.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body data-publica="true">
+  <header class="topo">
+    <div class="topo-conteudo">
+      <a class="marca" href="../menu/menu.html"><span class="marca-bola" aria-hidden="true">⚽</span><span>Futsal Manager</span></a>
+    </div>
+  </header>
+
+  <nav class="menu" aria-label="Navegação principal">
+    <ul>
+      <li><a href="../login/login.html">Entrar</a></li>
+      <li><a href="../cadastro/cadastro.html">Criar conta</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <header class="cabecalho-pagina">
+      <h1>Entrar</h1>
+      <p>Acesse sua conta para ver as partidas e comprar ingressos.</p>
+    </header>
+
+    <section class="cartao caixa-login" aria-labelledby="titulo-login">
+      <h2 id="titulo-login">Acesso ao sistema</h2>
+      <form id="formLogin" class="formulario" style="grid-template-columns:1fr">
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required autocomplete="username">
+        </div>
+        <div class="campo">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" required autocomplete="current-password">
+        </div>
+        <div class="acoes-formulario">
+          <button type="submit" class="btn btn-bloco">Entrar</button>
+        </div>
+      </form>
+      <p class="rodape-cartao">Ainda não tem conta? <a href="../cadastro/cadastro.html">Cadastre-se</a></p>
+    </section>
+
+    <aside class="cartao caixa-login caixa-demo" aria-label="Contas de demonstração">
+      <h2>Contas de demonstração</h2>
+      <p><span class="selo selo-admin">Administrador</span> admin@futsal.com / admin123</p>
+      <p><span class="selo">Cliente</span> mariana@email.com / cliente123</p>
+    </aside>
+  </main>
+
+  <footer class="rodape">
+    <p><strong>Futsal Manager</strong> - gestão de competições e venda de ingressos de futsal</p>
+    <p>Aluno: <strong id="rodape-aluno">João Felipe</strong> | Turma: <span id="rodape-turma">Informe a turma</span> | Ano: <span id="rodape-ano">2026</span></p>
+  </footer>
+
+  <script src="../comum/comum.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

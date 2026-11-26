@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogos - Futsal Manager</title>
+  <link rel="stylesheet" href="../comum/comum.css">
+  <link rel="stylesheet" href="jogos.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="topo-conteudo">
+      <a class="marca" href="../menu/menu.html"><span class="marca-bola" aria-hidden="true">⚽</span><span>Futsal Manager</span></a>
+      <div class="usuario" id="area-usuario" hidden>
+        <span class="usuario-nome" id="nome-usuario"></span>
+        <span class="selo" id="perfil-usuario"></span>
+        <button class="btn btn-contorno btn-pequeno" id="btnSair" type="button">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="menu" aria-label="Navegação principal">
+    <ul>
+      <li><a href="../menu/menu.html">Início</a></li>
+      <li><a href="../jogos/jogos.html">Jogos</a></li>
+      <li><a href="../meus_ingressos/meus_ingressos.html">Meus Ingressos</a></li>
+      <li class="separador" data-perfil="admin"></li>
+      <li data-perfil="admin"><a href="../partida/partida.html">Partidas</a></li>
+      <li data-perfil="admin"><a href="../time/time.html">Times</a></li>
+      <li data-perfil="admin"><a href="../jogador/jogador.html">Jogadores</a></li>
+      <li data-perfil="admin"><a href="../tecnico/tecnico.html">Técnicos</a></li>
+      <li data-perfil="admin"><a href="../competicao/competicao.html">Competições</a></li>
+      <li data-perfil="admin"><a href="../vendas/vendas.html">Vendas</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <header class="cabecalho-pagina">
+      <h1>Próximas partidas</h1>
+      <p>Escolha o jogo, a quantidade de ingressos e a forma de pagamento.</p>
+    </header>
+
+    <div class="layout-duas-colunas">
+      <section aria-label="Lista de partidas">
+        <div class="barra-filtro">
+          <label for="filtroCompeticao">Competição</label>
+          <select id="filtroCompeticao"><option value="">Todas</option></select>
+        </div>
+        <div class="grade-jogos" id="gradeJogos">
+          <p class="vazio">Carregando partidas...</p>
+        </div>
+      </section>
+
+      <aside class="cartao painel-compra" aria-labelledby="titulo-compra">
+        <h2 id="titulo-compra">Finalizar compra</h2>
+
+        <div id="semSelecao" class="vazio">Selecione uma partida para comprar ingressos.</div>
+
+        <form id="formCompra" hidden>
+          <div class="resumo-jogo" id="resumoJogo"></div>
+
+          <div class="campo">
+            <label for="quantidade">Quantidade (máx. 6)</label>
+            <input type="number" id="quantidade" min="1" max="6" value="1" required>
+          </div>
+
+          <fieldset class="campo grupo-pagamento">
+            <legend>Forma de pagamento</legend>
+            <label class="opcao-pagamento"><input type="radio" name="pagamento" value="PIX" checked> PIX</label>
+            <label class="opcao-pagamento"><input type="radio" name="pagamento" value="CARTAO"> Cartão de crédito</label>
+            <label class="opcao-pagamento"><input type="radio" name="pagamento" value="BOLETO"> Boleto</label>
+          </fieldset>
+          <p class="dica">Pagamento simulado: nenhuma cobrança real é feita.</p>
+
+          <p class="total-compra">Total: <strong id="totalCompra">R$ 0,00</strong></p>
+          <button type="submit" class="btn btn-destaque btn-bloco" id="btnComprar">Pagar e confirmar</button>
+        </form>
+
+        <div id="comprovante" class="comprovante" hidden></div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <p><strong>Futsal Manager</strong> - gestão de competições e venda de ingressos de futsal</p>
+    <p>Aluno: <strong id="rodape-aluno">João Felipe</strong> | Turma: <span id="rodape-turma">Informe a turma</span> | Ano: <span id="rodape-ano">2026</span></p>
+  </footer>
+
+  <script src="../comum/comum.js"></script>
+  <script src="jogos.js"></script>
+</body>
+</html>

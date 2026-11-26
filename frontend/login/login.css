@@ -1,0 +1,4 @@
+.caixa-login { max-width: 440px; margin-left: auto; margin-right: auto; }
+.rodape-cartao { margin-top: 1.25rem; text-align: center; font-size: .92rem; color: var(--texto-suave); }
+.caixa-demo { background: var(--verde-50); border-style: dashed; font-size: .9rem; }
+.caixa-demo p { margin-top: .5rem; }

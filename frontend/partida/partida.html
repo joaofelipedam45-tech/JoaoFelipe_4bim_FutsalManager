@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partidas - Futsal Manager</title>
+  <link rel="stylesheet" href="../comum/comum.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="topo-conteudo">
+      <a class="marca" href="../menu/menu.html"><span class="marca-bola" aria-hidden="true">⚽</span><span>Futsal Manager</span></a>
+      <div class="usuario" id="area-usuario" hidden>
+        <span class="usuario-nome" id="nome-usuario"></span>
+        <span class="selo" id="perfil-usuario"></span>
+        <button class="btn btn-contorno btn-pequeno" id="btnSair" type="button">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="menu" aria-label="Navegação principal">
+    <ul>
+      <li><a href="../menu/menu.html">Início</a></li>
+      <li><a href="../jogos/jogos.html">Jogos</a></li>
+      <li><a href="../meus_ingressos/meus_ingressos.html">Meus Ingressos</a></li>
+      <li class="separador" data-perfil="admin"></li>
+      <li data-perfil="admin"><a href="../partida/partida.html">Partidas</a></li>
+      <li data-perfil="admin"><a href="../time/time.html">Times</a></li>
+      <li data-perfil="admin"><a href="../jogador/jogador.html">Jogadores</a></li>
+      <li data-perfil="admin"><a href="../tecnico/tecnico.html">Técnicos</a></li>
+      <li data-perfil="admin"><a href="../competicao/competicao.html">Competições</a></li>
+      <li data-perfil="admin"><a href="../vendas/vendas.html">Vendas</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <header class="cabecalho-pagina">
+      <h1>Partidas</h1>
+      <p>Cadastre os jogos que ficam à venda para os clientes.</p>
+    </header>
+
+    <section class="cartao" aria-labelledby="titulo-form">
+      <h2 id="titulo-form">Novo partida</h2>
+      <form id="form" class="formulario">
+        <div class="campo">
+          <label for="id_competicao">Competição</label>
+          <select id="id_competicao" name="id_competicao" required><option value="">Selecione</option></select>
+        </div>
+        <div class="campo">
+          <label for="id_time_casa">Time da casa</label>
+          <select id="id_time_casa" name="id_time_casa" required><option value="">Selecione</option></select>
+        </div>
+        <div class="campo">
+          <label for="id_time_visitante">Time visitante</label>
+          <select id="id_time_visitante" name="id_time_visitante" required><option value="">Selecione</option></select>
+        </div>
+        <div class="campo">
+          <label for="data_hora">Data e hora</label>
+          <input type="datetime-local" id="data_hora" name="data_hora" required>
+        </div>
+        <div class="campo">
+          <label for="local">Local</label>
+          <input type="text" id="local" name="local" maxlength="100">
+        </div>
+        <div class="campo">
+          <label for="preco">Preço do ingresso (R$)</label>
+          <input type="number" id="preco" name="preco" required min="0" step="0.01">
+        </div>
+        <div class="campo">
+          <label for="capacidade">Capacidade (ingressos)</label>
+          <input type="number" id="capacidade" name="capacidade" required min="1">
+        </div>
+        <div class="acoes-formulario">
+          <button type="submit" class="btn" id="btnSalvar">Salvar</button>
+          <button type="button" class="btn btn-contorno" id="btnCancelar">Limpar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="cartao" aria-labelledby="titulo-lista">
+      <h2 id="titulo-lista">Cadastrados</h2>
+      <div class="tabela-rolagem">
+        <table>
+          <thead><tr><th>ID</th><th>Partida</th><th>Competição</th><th>Data</th><th>Preço</th><th>Vendidos / Capacidade</th><th>Ações</th></tr></thead>
+          <tbody id="lista"><tr><td colspan="7" class="vazio">Carregando...</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p><strong>Futsal Manager</strong> - gestão de competições e venda de ingressos de futsal</p>
+    <p>Aluno: <strong id="rodape-aluno">João Felipe</strong> | Turma: <span id="rodape-turma">Informe a turma</span> | Ano: <span id="rodape-ano">2026</span></p>
+  </footer>
+
+  <script src="../comum/comum.js"></script>
+  <script src="partida.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Ingressos - Futsal Manager</title>
+  <link rel="stylesheet" href="../comum/comum.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="topo-conteudo">
+      <a class="marca" href="../menu/menu.html"><span class="marca-bola" aria-hidden="true">⚽</span><span>Futsal Manager</span></a>
+      <div class="usuario" id="area-usuario" hidden>
+        <span class="usuario-nome" id="nome-usuario"></span>
+        <span class="selo" id="perfil-usuario"></span>
+        <button class="btn btn-contorno btn-pequeno" id="btnSair" type="button">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="menu" aria-label="Navegação principal">
+    <ul>
+      <li><a href="../menu/menu.html">Início</a></li>
+      <li><a href="../jogos/jogos.html">Jogos</a></li>
+      <li><a href="../meus_ingressos/meus_ingressos.html">Meus Ingressos</a></li>
+      <li class="separador" data-perfil="admin"></li>
+      <li data-perfil="admin"><a href="../partida/partida.html">Partidas</a></li>
+      <li data-perfil="admin"><a href="../time/time.html">Times</a></li>
+      <li data-perfil="admin"><a href="../jogador/jogador.html">Jogadores</a></li>
+      <li data-perfil="admin"><a href="../tecnico/tecnico.html">Técnicos</a></li>
+      <li data-perfil="admin"><a href="../competicao/competicao.html">Competições</a></li>
+      <li data-perfil="admin"><a href="../vendas/vendas.html">Vendas</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <header class="cabecalho-pagina">
+      <h1>Meus ingressos</h1>
+      <p>Histórico das suas compras.</p>
+    </header>
+
+    <section class="cartao" aria-label="Minhas compras">
+      <div class="tabela-rolagem">
+        <table>
+          <thead>
+            <tr><th>Nº</th><th>Partida</th><th>Data</th><th>Qtd</th><th>Total</th><th>Pagamento</th><th>Status</th><th>Ações</th></tr>
+          </thead>
+          <tbody id="listaCompras"><tr><td colspan="8" class="vazio">Carregando...</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p><strong>Futsal Manager</strong> - gestão de competições e venda de ingressos de futsal</p>
+    <p>Aluno: <strong id="rodape-aluno">João Felipe</strong> | Turma: <span id="rodape-turma">Informe a turma</span> | Ano: <span id="rodape-ano">2026</span></p>
+  </footer>
+
+  <script src="../comum/comum.js"></script>
+  <script src="meus_ingressos.js"></script>
+</body>
+</html>

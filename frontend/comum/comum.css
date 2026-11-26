@@ -1,0 +1,223 @@
+/* =====================================================================
+   Futsal Manager - folha de estilo comum a todas as páginas
+   ===================================================================== */
+
+:root {
+  --verde-900: #052e1f;
+  --verde-800: #064e3b;
+  --verde-700: #0b6e4f;
+  --verde-600: #0f8a5f;
+  --verde-100: #d7f5e6;
+  --verde-50:  #effaf4;
+  --destaque:  #f5b301;
+  --destaque-escuro: #c78f00;
+  --noite:     #0f172a;
+  --texto:     #1e293b;
+  --texto-suave: #64748b;
+  --fundo:     #f1f5f9;
+  --branco:    #ffffff;
+  --borda:     #dbe3ec;
+  --perigo:    #dc2626;
+  --perigo-fundo: #fee2e2;
+  --aviso-fundo: #fef3c7;
+  --info:      #2563eb;
+  --raio:      14px;
+  --raio-pequeno: 8px;
+  --sombra:    0 1px 2px rgba(15, 23, 42, .06), 0 8px 24px rgba(15, 23, 42, .06);
+  --sombra-forte: 0 12px 32px rgba(15, 23, 42, .16);
+  --fonte: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--fonte);
+  color: var(--texto);
+  background: var(--fundo);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--verde-700); }
+[hidden] { display: none !important; }
+
+:focus-visible { outline: 3px solid var(--destaque); outline-offset: 2px; }
+
+/* ---------- Cabeçalho ---------- */
+.topo {
+  background:
+    radial-gradient(circle at 12% 120%, rgba(255,255,255,.10) 0 90px, transparent 91px),
+    linear-gradient(120deg, var(--verde-900), var(--verde-700));
+  color: var(--branco);
+  border-bottom: 4px solid var(--destaque);
+}
+.topo-conteudo {
+  max-width: 1200px; margin: 0 auto; padding: 1rem 1.25rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+.marca {
+  display: inline-flex; align-items: center; gap: .6rem;
+  color: var(--branco); text-decoration: none;
+  font-size: 1.5rem; font-weight: 800; letter-spacing: .3px;
+}
+.marca-bola { font-size: 1.8rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,.3)); }
+.usuario { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; font-size: .95rem; }
+.usuario-nome { font-weight: 600; }
+
+/* ---------- Menu de navegação ---------- */
+.menu {
+  background: var(--noite);
+  position: sticky; top: 0; z-index: 20;
+  box-shadow: 0 4px 12px rgba(0,0,0,.18);
+}
+.menu ul {
+  max-width: 1200px; margin: 0 auto; padding: .4rem 1rem;
+  list-style: none; display: flex; flex-wrap: wrap; gap: .25rem;
+}
+.menu a {
+  display: block; padding: .55rem .95rem; border-radius: 999px;
+  color: #cbd5e1; text-decoration: none; font-size: .95rem; font-weight: 500;
+  transition: background .15s, color .15s;
+}
+.menu a:hover { background: rgba(255,255,255,.1); color: var(--branco); }
+.menu a[aria-current="page"] { background: var(--destaque); color: var(--noite); font-weight: 700; }
+.menu .separador { width: 1px; background: rgba(255,255,255,.18); margin: .3rem .4rem; }
+
+/* itens exclusivos do administrador ficam ocultos até a sessão confirmar o perfil */
+[data-perfil="admin"] { display: none !important; }
+body.perfil-admin [data-perfil="admin"] { display: revert !important; }
+body.perfil-admin li[data-perfil="admin"] { display: list-item !important; }
+body.perfil-admin .menu li.separador[data-perfil="admin"] { display: block !important; }
+
+/* ---------- Conteúdo ---------- */
+main {
+  flex: 1; width: 100%; max-width: 1200px; margin: 2rem auto; padding: 0 1.25rem;
+}
+.cabecalho-pagina { margin-bottom: 1.5rem; }
+.cabecalho-pagina h1 { font-size: 1.9rem; color: var(--verde-800); line-height: 1.2; }
+.cabecalho-pagina p { color: var(--texto-suave); margin-top: .25rem; }
+
+.layout-duas-colunas { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 1.5rem; align-items: start; }
+@media (max-width: 900px) { .layout-duas-colunas { grid-template-columns: 1fr; } }
+
+section, aside.cartao { margin-bottom: 1.5rem; }
+.cartao {
+  background: var(--branco); border: 1px solid var(--borda);
+  border-radius: var(--raio); box-shadow: var(--sombra); padding: 1.5rem;
+}
+.cartao > h2, .cartao > header h2 { font-size: 1.2rem; margin-bottom: 1rem; color: var(--verde-800); }
+
+/* ---------- Mensagens (toast) ---------- */
+#avisos {
+  position: fixed; bottom: 1rem; right: 1rem; z-index: 100;
+  display: flex; flex-direction: column; gap: .6rem; max-width: min(92vw, 380px);
+}
+.aviso {
+  padding: .85rem 1.1rem; border-radius: var(--raio-pequeno); color: var(--branco);
+  background: var(--verde-700); box-shadow: var(--sombra-forte); font-weight: 500;
+  animation: entrar .25s ease-out;
+}
+.aviso.erro { background: var(--perigo); }
+.aviso.info { background: var(--info); }
+@keyframes entrar { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+  padding: .65rem 1.2rem; border: 2px solid transparent; border-radius: var(--raio-pequeno);
+  font: inherit; font-weight: 600; cursor: pointer; text-decoration: none;
+  background: var(--verde-700); color: var(--branco);
+  transition: transform .1s, background .15s, box-shadow .15s;
+}
+.btn:hover { background: var(--verde-600); box-shadow: 0 4px 12px rgba(11,110,79,.3); }
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: .5; cursor: not-allowed; box-shadow: none; transform: none; }
+.btn-destaque { background: var(--destaque); color: var(--noite); }
+.btn-destaque:hover { background: #ffc61f; box-shadow: 0 4px 12px rgba(245,179,1,.4); }
+.btn-perigo { background: var(--perigo); }
+.btn-perigo:hover { background: #b91c1c; box-shadow: 0 4px 12px rgba(220,38,38,.3); }
+.btn-contorno { background: transparent; border-color: currentColor; color: inherit; }
+.btn-contorno:hover { background: rgba(255,255,255,.12); box-shadow: none; }
+.cartao .btn-contorno { color: var(--texto); }
+.cartao .btn-contorno:hover { background: var(--fundo); }
+.btn-pequeno { padding: .35rem .8rem; font-size: .85rem; }
+.btn-bloco { width: 100%; }
+
+/* ---------- Formulários ---------- */
+.formulario { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem 1.25rem; }
+.campo { display: flex; flex-direction: column; gap: .35rem; }
+.campo.largo { grid-column: 1 / -1; }
+.campo label, .campo legend { font-size: .85rem; font-weight: 600; color: var(--texto-suave); }
+input[type="text"], input[type="email"], input[type="password"], input[type="number"],
+input[type="date"], input[type="datetime-local"], select, textarea {
+  width: 100%; padding: .65rem .8rem; font: inherit; color: var(--texto);
+  background: var(--branco); border: 1.5px solid var(--borda); border-radius: var(--raio-pequeno);
+  transition: border-color .15s, box-shadow .15s;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none; border-color: var(--verde-600); box-shadow: 0 0 0 4px rgba(15,138,95,.15);
+}
+input[type="file"] { font: inherit; font-size: .9rem; }
+textarea { resize: vertical; min-height: 84px; }
+.acoes-formulario { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1.25rem; grid-column: 1 / -1; }
+.dica { font-size: .82rem; color: var(--texto-suave); }
+
+.previa-imagem {
+  width: 96px; height: 96px; object-fit: cover; border-radius: var(--raio-pequeno);
+  border: 1.5px dashed var(--borda); background: var(--fundo);
+}
+
+/* ---------- Tabelas ---------- */
+.tabela-rolagem { overflow-x: auto; border: 1px solid var(--borda); border-radius: var(--raio); }
+table { width: 100%; border-collapse: collapse; background: var(--branco); font-size: .93rem; }
+th {
+  text-align: left; padding: .8rem 1rem; background: var(--verde-800); color: var(--branco);
+  font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .5px; white-space: nowrap;
+}
+td { padding: .75rem 1rem; border-top: 1px solid var(--borda); vertical-align: middle; }
+tbody tr:nth-child(even) { background: #f8fafc; }
+tbody tr:hover { background: var(--verde-50); }
+td.acoes { white-space: nowrap; display: flex; gap: .4rem; }
+.vazio { text-align: center; color: var(--texto-suave); padding: 2rem 1rem; }
+.miniatura { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--borda); background: var(--fundo); }
+.celula-time { display: flex; align-items: center; gap: .6rem; }
+
+/* ---------- Selos ---------- */
+.selo {
+  display: inline-block; padding: .15rem .65rem; border-radius: 999px;
+  font-size: .75rem; font-weight: 700; letter-spacing: .4px; text-transform: uppercase;
+  background: var(--verde-100); color: var(--verde-800);
+}
+.selo-admin { background: var(--destaque); color: var(--noite); }
+.selo-pago { background: var(--verde-100); color: var(--verde-800); }
+.selo-cancelado { background: var(--perigo-fundo); color: #991b1b; }
+.selo-aviso { background: var(--aviso-fundo); color: #92400e; }
+
+/* ---------- Cartões de indicadores ---------- */
+.indicadores { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.indicador {
+  background: var(--branco); border: 1px solid var(--borda); border-left: 5px solid var(--verde-600);
+  border-radius: var(--raio); padding: 1.1rem 1.25rem; box-shadow: var(--sombra);
+}
+.indicador span { display: block; font-size: .8rem; color: var(--texto-suave); text-transform: uppercase; letter-spacing: .5px; }
+.indicador strong { font-size: 1.7rem; color: var(--verde-800); }
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  background: var(--noite); color: #cbd5e1; text-align: center;
+  padding: 1.5rem 1rem; font-size: .9rem; margin-top: auto;
+  border-top: 4px solid var(--destaque);
+}
+.rodape strong { color: var(--branco); }
+.rodape p + p { margin-top: .25rem; }
+
+@media (max-width: 600px) {
+  .marca { font-size: 1.25rem; }
+  .cabecalho-pagina h1 { font-size: 1.5rem; }
+  .cartao { padding: 1.1rem; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
